@@ -40,28 +40,31 @@ function base_triangle()
 end
 
 
-function draw_path(vv)
+function draw_path(vv, wide = 1)
     n = length(vv) - 1
     for i = 1:n
-        draw_segment(vv[i], vv[i+1], color = :black)
+        draw_segment(vv[i], vv[i+1], color = :black, linewidth=wide)
     end
     finish()
 end
 
 """
-    snowflake(n::Int = 4)
+    snowflake(n::Int = 4, wide = 1)
 
 Draw a picture of the Koch snowflake curve. The parameter `n`
 determines the number of iterations of the bump algorithm. 
 With `n=0` the result is an equilateral triangle. 
+
+The optional second parameter specifies the line
+width. 
 """
-function snowflake(n::Int = 4)
+function snowflake(n::Int = 4, wide = 1)
     newdraw()
     a = base_triangle()
     for k = 1:n
         a = bump_polygon(a)
     end
-    draw_path(a)
+    draw_path(a, wide)
     finish()
 end
 end # module Koch
