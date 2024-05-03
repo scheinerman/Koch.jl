@@ -9,3 +9,5 @@ iterations and this is the result:
 ![](snowflake.png)
 
 
+The `snowflake` function takes an optional second parameter specifying
+the line width. (The default is 1; use 0.5 for thinner lines.)
